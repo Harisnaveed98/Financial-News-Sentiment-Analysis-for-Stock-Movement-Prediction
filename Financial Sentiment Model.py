@@ -1,12 +1,3 @@
-"""
-Financial News Sentiment Analysis for Stock Movement Prediction
-A compact deep learning model that analyzes financial news headlines to predict sentiment
-
-Author: [Your Name]
-Dataset: Financial PhraseBank (download from Kaggle)
-URL: https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news
-Place the downloaded CSV as 'financial_news.csv' in the same directory as this script
-"""
 
 import numpy as np
 import pandas as pd
@@ -258,3 +249,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
