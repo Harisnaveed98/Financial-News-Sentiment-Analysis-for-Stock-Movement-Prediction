@@ -159,7 +159,3 @@ This project demonstrates:
 
 MIT License - Free to use and modify
 
-
----
-
-**Note**: This is for educational purposes. Real financial applications require larger datasets, domain-specific models (FinBERT), and proper risk management.
