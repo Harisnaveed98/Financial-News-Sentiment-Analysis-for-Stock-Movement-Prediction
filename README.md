@@ -107,17 +107,6 @@ EPOCHS = 20           # Training epochs
 BATCH_SIZE = 32       # Batch size
 ```
 
-## Requirements
-
-```
-tensorflow>=2.10.0
-numpy>=1.21.0
-pandas>=1.3.0
-matplotlib>=3.4.0
-seaborn>=0.11.0
-scikit-learn>=1.0.0
-```
-
 ## Key Features
 
 - ✅ Clean, modular code with clear comments
@@ -127,35 +116,4 @@ scikit-learn>=1.0.0
 - ✅ Professional visualizations
 - ✅ Error handling for missing dataset
 - ✅ Reproducible results (fixed random seeds)
-
-## Why BiLSTM?
-
-Unlike simple feedforward networks, BiLSTM:
-- Reads text both forward and backward
-- Captures long-range dependencies
-- Understands context better (e.g., "not good" vs "very good")
-- Better suited for financial language nuances
-
-## Learning Outcomes
-
-This project demonstrates:
-- Text preprocessing and tokenization
-- Word embeddings
-- Recurrent neural networks (LSTM/BiLSTM)
-- Model regularization (dropout)
-- Training optimization (callbacks)
-- Model evaluation and visualization
-- Production-ready code structure
-
-## Future Improvements
-
-- Add attention mechanism
-- Try transformer models (BERT, FinBERT)
-- Multi-class classification (positive/negative/neutral)
-- Deploy as REST API
-- Real-time news scraping
-
-## License
-
-MIT License - Free to use and modify
 
