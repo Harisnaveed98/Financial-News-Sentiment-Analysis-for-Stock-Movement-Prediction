@@ -1,2 +1,165 @@
-# Financial-News-Sentiment-Analysis-for-Stock-Movement-Prediction
-A compact deep learning model that analyzes financial news headlines to predict sentiment
+# Financial News Sentiment Analysis 📈📉
+
+A deep learning model that analyzes financial news headlines to predict market sentiment using Bidirectional LSTM networks.
+
+## Overview
+
+This project demonstrates practical NLP and deep learning for financial text analysis. The model classifies news headlines as positive or negative sentiment, which can help investors gauge market sentiment quickly.
+
+**Why this project?**
+- Applies deep learning to real-world financial domain
+- Uses BiLSTM for context-aware text understanding
+- Small dataset (~50MB) but production-quality code
+- Complete ML pipeline: preprocessing → training → evaluation
+
+## Model Architecture
+
+```
+Embedding (128-dim) → BiLSTM (64) → Dropout → BiLSTM (32) → Dropout → Dense (32) → Output (Sigmoid)
+```
+
+- **BiLSTM**: Captures context from both directions in text
+- **Dropout**: Prevents overfitting (0.2-0.3 rates)
+- **Binary Classification**: Positive/Negative sentiment
+
+## Dataset
+
+**Financial PhraseBank** - ~4,840 financial news sentences with sentiment labels
+
+**Download:**
+1. Visit: https://www.kaggle.com/datasets/ankurzing/sentiment-analysis-for-financial-news
+2. Download the CSV file
+3. Rename to `financial_news.csv` and place in project directory
+
+**Dataset format:**
+```
+Sentiment,Sentence
+positive,"Company reports record quarterly earnings"
+negative,"Stock plummets after disappointing results"
+```
+
+## Installation
+
+```bash
+# Install dependencies
+pip install tensorflow numpy pandas matplotlib seaborn scikit-learn
+
+# Place dataset
+# financial_news.csv should be in the same directory as the script
+```
+
+## Usage
+
+Simply run:
+```bash
+python sentiment_analysis.py
+```
+
+The script will:
+1. ✅ Load and preprocess the dataset
+2. ✅ Build the BiLSTM model
+3. ✅ Train with early stopping (~5-10 min on CPU)
+4. ✅ Evaluate on test set
+5. ✅ Generate visualizations
+6. ✅ Save trained model
+7. ✅ Demo predictions on sample headlines
+
+## Results
+
+Expected performance:
+- **Accuracy**: 85-90%
+- **AUC**: 0.92-0.95
+
+Output files:
+- `sentiment_model.h5` - Trained model
+- `sentiment_analysis_results.png` - Performance visualizations
+
+## Code Structure
+
+The single file contains:
+- `load_and_preprocess_data()` - Data loading with error handling
+- `prepare_sequences()` - Tokenization and padding
+- `build_model()` - BiLSTM architecture definition
+- `train_model()` - Training with callbacks
+- `evaluate_model()` - Metrics calculation
+- `visualize_results()` - 4 plots (accuracy, loss, confusion matrix, ROC)
+- `predict_sentiment()` - Inference on new text
+- `main()` - Complete pipeline orchestration
+
+## Example Predictions
+
+```
+📰 Company reports record profits, stock surges to all-time high
+   → Positive 📈 (Confidence: 94.2%)
+
+📰 Major layoffs announced as company struggles with declining revenue
+   → Negative 📉 (Confidence: 89.7%)
+```
+
+## Customization
+
+Adjust hyperparameters in `main()`:
+```python
+MAX_WORDS = 5000      # Vocabulary size
+MAX_LEN = 50          # Sequence length
+EMBEDDING_DIM = 128   # Embedding dimensions
+EPOCHS = 20           # Training epochs
+BATCH_SIZE = 32       # Batch size
+```
+
+## Requirements
+
+```
+tensorflow>=2.10.0
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+scikit-learn>=1.0.0
+```
+
+## Key Features
+
+- ✅ Clean, modular code with clear comments
+- ✅ Proper train/validation/test split (70/15/15)
+- ✅ Early stopping and learning rate scheduling
+- ✅ Comprehensive evaluation metrics
+- ✅ Professional visualizations
+- ✅ Error handling for missing dataset
+- ✅ Reproducible results (fixed random seeds)
+
+## Why BiLSTM?
+
+Unlike simple feedforward networks, BiLSTM:
+- Reads text both forward and backward
+- Captures long-range dependencies
+- Understands context better (e.g., "not good" vs "very good")
+- Better suited for financial language nuances
+
+## Learning Outcomes
+
+This project demonstrates:
+- Text preprocessing and tokenization
+- Word embeddings
+- Recurrent neural networks (LSTM/BiLSTM)
+- Model regularization (dropout)
+- Training optimization (callbacks)
+- Model evaluation and visualization
+- Production-ready code structure
+
+## Future Improvements
+
+- Add attention mechanism
+- Try transformer models (BERT, FinBERT)
+- Multi-class classification (positive/negative/neutral)
+- Deploy as REST API
+- Real-time news scraping
+
+## License
+
+MIT License - Free to use and modify
+
+
+---
+
+**Note**: This is for educational purposes. Real financial applications require larger datasets, domain-specific models (FinBERT), and proper risk management.
